@@ -6,6 +6,7 @@ using namespace std;
 retorna la opcion elgida por el usuario*/
 
 int menu();
+int factorial(int);
 
 int main() {
  bool salir=false;
@@ -30,14 +31,30 @@ int main() {
     cout<<"El resultado es: "<<n1 + n2<<endl;    
     break;
    }
-   case 3:
+   case 3:{
+   int num;
+   cout<<"Ingrese el numero: ";
+   cin>>num;
+   cout<<"El factorial de "<<num<<" es:"
+   <<factorial(num)<<endl;
    break;
    case 4:
     salir=true;
    break;
   }
  }
+} 
  return 0;
+ 
+}
+int factorial(int i){
+ if (i<0)//validar input
+  return -1;
+ else if (i=0){//fondo de la recursion
+  return 1;
+ } else {
+  return i* factorial(i-1);
+ }
 }
 
 int menu(){
